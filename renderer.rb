@@ -4,10 +4,11 @@ require "pp"
 
 module App
   class Renderer
+    DEFAULT_CODE =  'puts "hello #{world}"'
     attr_reader :code
     def initialize(request:)
       @request = request
-      @code = request.query["code"]
+      @code = request.query["code"] || DEFAULT_CODE
     end
 
     def context

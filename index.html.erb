@@ -79,12 +79,17 @@
     <div class="container">
       <div class="side">
         <form action="/" method="GET">
+          <h1>Ruby Code</h1>
           <textarea name="code" rows="20"><%= renderer.code %></textarea>
           <input type="submit" value="Rip!" />
         </form>
       </div>
       <div class="side">
-        <pre class="highlight"><%= renderer.parsed_code %></pre>
+        <h1>Ripper S-expression</h1>
+        <pre class="highlight">
+# Ripper.sexp_raw(...) =>
+
+<%= renderer.parsed_code %></pre>
       </div>
     </div>
     <div>
