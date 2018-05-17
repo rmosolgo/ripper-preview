@@ -3,10 +3,22 @@ require "erb"
 
 module App
   def self.start
+    production_env = !!ENV["PORT"]
+
     server = WEBrick::HTTPServer.new(Port: ENV["PORT"] || 9898)
-    server.mount_proc '/' do |request, response|
-      load "./renderer.rb"
+
+    if production_env
+      require_relative "./renderer"
       template = File.read("./index.html.erb")
+    end
+
+    server.mount_proc '/' do |request, response|
+      if !production_env
+        # reload in development
+        load "./renderer.rb"
+        template = File.read("./index.html.erb")
+      end
+
       renderer = Renderer.new(request: request)
       erb = ERB.new(template).result(renderer.context)
       response.body = erb
