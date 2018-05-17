@@ -1,6 +1,11 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    graphviz (1.0.0)
+      process-pipeline
+    process-group (1.1.0)
+    process-pipeline (1.0.1)
+      process-group
     rake (12.3.1)
     rouge (3.1.1)
 
@@ -8,6 +13,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  graphviz!
   rake!
   rouge!
 

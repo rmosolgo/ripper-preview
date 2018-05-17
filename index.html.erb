@@ -73,6 +73,11 @@
       width: 100%;
     }
 
+    h1 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
     </style>
   </head>
   <body>
@@ -92,10 +97,12 @@
 <%= renderer.parsed_code %></pre>
       </div>
     </div>
-    <div>
+    <div class="container">
       <div class="side">
-        <p>Ruby version: <%= RUBY_VERSION %>, Source Code: <a href="https://github.com/rmosolgo/ripper-preview">GitHub</a>.</p>
+        <h1>Graph Structure</h1>
+        <img src="data:image/png;base64,<%= renderer.image_data %>"/>
       </div>
     </div>
+    <p>Ruby version: <%= RUBY_VERSION %>, Source Code: <a href="https://github.com/rmosolgo/ripper-preview">GitHub</a>.</p>
   </body>
 </html>
